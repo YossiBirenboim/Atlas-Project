@@ -33,17 +33,6 @@ const createCountry = async (_url) => {
 
 }
 
-// const createCountry  = async (_url) => {
-//     // let country
-//     // const arrCountreis = []
-
-//     let resp = await fetch(_url)
-//     let data = await resp.json()
-//     console.log(data);
-    
-
-// }
-
 const addCountry = (_country) => {
     _country.render()
 }
