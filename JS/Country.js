@@ -1,61 +1,66 @@
 export default class Country {
-  constructor(_name, _shortName, _pop, _capital, _neighbors, _languages, _flag, _map) {
+  constructor(_name, _shortName, _pop, _capital, _neighbors, _languages, _flag, _map, _lat, _lon) {
     this.name = _name;
     this.shortName = _shortName;
-    this.pop  = _pop;
+    this.pop = _pop;
     this.capital = _capital;
     this.neighbors = _neighbors;
     this.languages = _languages;
     this.flag = _flag;
     this.map = _map;
-     
+    this.lat = _lat;
+    this.lon = _lon;
   }
 
-  renderPop(){
-    let divs = document.querySelectorAll(".div_b");
+  renderPop() {
     let parent = document.querySelector("#id_main");
-    
-    divs.forEach(div => {
-         
-            parent.innerHTML = `
-            <div class="container">
-               <ul>
-                <li>${this.name}</li>
-                <li>${this.shortName}</li>
-                <li>${this.pop}</li>
-                <li>${this.capital}</li>
-                <li>${this.neighbors}</li>
-                <li>${this.languages}</li>
-                <li><div><a href="${this.flag}">Show the flag</a></div></li>
-                <li><div><a href="${this.map}">To the map</a></div></li>
-               </ul>
+    let listOfN = this.findNeighbors();
+    parent.innerHTML = `
+            <div class="container renderPopClass">
+            <div>
+            <ul>
+                <li>name : ${this.name}</li>
+                <li>short name : ${this.shortName}</li>
+                <li>population : ${this.pop}</li>
+                <li>capital : ${this.capital}</li>
+                <li>neighbors : ${this.neighbors}</li>
+                <li>languges : ${this.languages}</li>
+                <li class = "listOfNeighbors"> ${listOfN.forEach(elemnt => elemnt)}</li>
+                </ul>
+                </div>
+                <div><img src  = "${this.flag}"</div>
+                <div class = "iframeClass"><iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+            src="https://maps.google.com/maps?q=${this.lat},${this.lon}&hl=es&z=5&amp;output=embed">
+            </iframe></div>
             </div>
             `;
-        
-    });
   }
+
   render() {
-    
     let myDiv = document.createElement("div")
     myDiv.className = "div_b"
-    myDiv.style.backgroundColor = "silver"
-    myDiv.style.padding = 0;
-    
     document.querySelector("#id_main").append(myDiv)
-    myDiv.innerHTML = `<div class="card" style="width: 18rem;">
+    myDiv.innerHTML = `<div class="card cardClass" style="width: 25rem;">
     <div class="card-body" href = "../info.html">
     <img src="${this.flag}" class="card-img-top" alt="${this.name}">
-    <p class="card-text">name: ${this.name}.</p>
-    <p class="card-text">pop: ${this.pop}.</p>
-    <p class="card-text">capital: ${this.capital}.</p>
-    <p class="card-text"> languages: ${this.languages}.</p>
+    <p class="card-text">name: ${this.name}.</p> 
     </div>
     </div>`
-    myDiv.addEventListener("click",()=>{
+    myDiv.addEventListener("click", () => {
       this.renderPop()
     })
-     
+
   }
-  
-  
+
+  findNeighbors() {
+    let listOfN = []
+    if(this.neighbors === undefined) {
+      listOfN.push(`none`)
+      return listOfN  
+    }
+    for (let key in this.neighbors) {
+       listOfN.push(this.neighbors[key])
+    }
+    return listOfN;
+  }
 }

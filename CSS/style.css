@@ -1,0 +1,35 @@
+body{
+    background-image: url("../pic/body-backgroung.jpg");
+    
+    background-attachment: fixed;
+}
+.renderPopClass{
+    height: 50%;
+    width: 50%;
+    display: flex;
+     justify-content: space-between;
+     color: aliceblue;
+     padding: 1;
+     font-style:italic ;
+     font-size: larger;
+     
+}
+
+.renderPopClass img {
+    border-radius: 5%;
+      
+}
+.iframeClass{
+
+}
+
+.cardClass{
+    margin-bottom: auto;
+}
+.cardClass img{
+     
+}
+
+li{
+    list-style-type: none;
+}
