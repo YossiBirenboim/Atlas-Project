@@ -5,22 +5,7 @@ const arrCountreis = []
 
 const init = () => {
     createUrl()
-    document.querySelector("header").innerHTML =`
-  <ul class="nav nav-pills container p-5">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-    ` 
+    // addNav()
 }
 
 
@@ -37,10 +22,10 @@ const createCountry = async (_url) => {
     data.forEach(element => {
         if (element.unMember) {
             country = new Country(element.name.common, element.cca3, element.population, element.capital,
-                element.borders, element.languages, element.flags.png, element.maps.googleMaps,element.latlng[0],element.latlng[1])
+                element.borders, element.languages, element.flags.png, element.maps.googleMaps, element.latlng[0], element.latlng[1])
             addCountry(country)
             arrCountreis.push(country)
-         }
+        }
     });
 }
 
@@ -49,7 +34,27 @@ const addCountry = (_country) => {
 }
 
 
- 
+const addNav = () => {
+    document.querySelector("header").innerHTML = `
+    <ul class="nav nav-pills container p-3">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>
+      `
+}
+
+
+
 
 
 init()

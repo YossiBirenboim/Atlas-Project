@@ -1,8 +1,135 @@
 body{
     background-image: url("../pic/body-backgroung.jpg");
-    
     background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: #f5f5f5;
+    margin: 10%;
+    
 }
+
+
+
+header {
+    width: 100%;
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+ 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    max-width: 1200px;
+    margin: auto;
+}
+
+ 
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+ 
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f1c40f;
+}
+
+ 
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+ 
+.dropdown {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 15px;
+    background-color: white;
+    cursor: pointer;
+}
+
+ 
+.search-form {
+    display: flex;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-form input {
+    padding: 8px;
+    border: none;
+    outline: none;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    background-color: #f1c40f;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #d4ac0d;
+}
+
+ 
+@media (max-width: 768px) {
+
+     
+    
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .nav-actions {
+        flex-direction: column;
+    }
+
+    .dropdown {
+        margin-bottom: 10px;
+    }
+}
+
 .renderPopClass{
     height: 50%;
     width: 50%;
