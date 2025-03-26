@@ -15,6 +15,7 @@ export default class Country {
   renderPop() {
     let parent = document.querySelector("#id_main");
     let listOfN = this.findNeighbors();
+    let listOfL = this.showTheLanguages();
     parent.innerHTML = `
             <div class="container renderPopClass">
             <div>
@@ -24,7 +25,7 @@ export default class Country {
                 <li>population : ${this.pop}</li>
                 <li>capital : ${this.capital}</li>
                 <li>neighbors : ${this.neighbors}</li>
-                <li>languges : ${this.languages}</li>
+                <li>languges : ${listOfL.forEach(elemnt => elemnt)}</li>
                 <li class = "listOfNeighbors"> ${listOfN.forEach(elemnt => elemnt)}</li>
                 </ul>
                 </div>
@@ -54,13 +55,24 @@ export default class Country {
 
   findNeighbors() {
     let listOfN = []
-    if(this.neighbors === undefined) {
+    if (this.neighbors === undefined) {
       listOfN.push(`none`)
-      return listOfN  
+      return listOfN
     }
     for (let key in this.neighbors) {
-       listOfN.push(this.neighbors[key])
+      listOfN.push(this.neighbors[key])
     }
     return listOfN;
+  }
+  showTheLanguages() {
+    let listOfL = []
+    if (this.neighbors === undefined) {
+      listOfL.push(`none`)
+      return listOfL
+    }
+    for (let key in this.neighbors) {
+      listOfL.push(this.neighbors[key])
+    }
+    return listOfL;
   }
 }
