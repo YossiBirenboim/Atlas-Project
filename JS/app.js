@@ -1,12 +1,20 @@
 import Country from "./Country.js";
+import {putACard} from "./function.js"
+import { logoLisiner } from "./function.js";
+// import { findACountry } from "./function.js";
+import { linksListener } from "./function.js";
+import { formListiner } from "./function.js";
+import { selectManager } from "./function.js";
 
 
-const arrCountreis = []
-const arrOfNames = []
-let countreisToShow = []
-let viewOneCard = false;
-let viewAFewCards = true;
-let viewAllCards = false;
+import {arrCountreis} from "./function.js"
+import {arrOfNames} from "./function.js"
+import {countreisToShow} from "./function.js"
+import {viewOneCard} from "./function.js"
+import {viewAFewCards} from "./function.js"
+ 
+
+
 
 const init = () => {
   createUrl()
@@ -31,116 +39,15 @@ const createCountry = async (_url) => {
       arrOfNames.push(country.name)
     }
   });
-  selectManager()
-  formListiner()
+
+  arrOfNames.sort()
+  logoLisiner()
   linksListener()
+  formListiner()
+  selectManager()
   if (!viewOneCard) {
     putACard()
   }
 }
-
-const selectManager = () => {
-  arrOfNames.sort();
-  let selectBox = document.querySelector("#id_select");
-
-  // ננקה את התוכן הקודם כדי למנוע הצטברות של אפשרויות
-  selectBox.innerHTML = '<option>Search a country</option>';
-
-  // נוסיף את האפשרויות למבחר
-  arrOfNames.forEach(name => {
-      let option = document.createElement("option");
-      option.textContent = name;
-      selectBox.appendChild(option);
-  });
-
-  // הוספת event listener פעם אחת בלבד
-  selectBox.addEventListener("change", (e) => {
-    findACountry(e.target.value)
-      // console.log(e.target.value);
-  },
-  //  { once: true }
-  ); // מוסיף מאזין פעם אחת בלבד
-}
-
-
-const formListiner = () => {
-  let form = document.querySelector("#id_form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    let nameOfCountry = document.querySelector("#id_text").value;
-    findACountry(nameOfCountry)
-  })
-}
-
-const linksListener = () => {
-  document.querySelector("#link_i").addEventListener("click", () => {
-    findACountry("Israel")
-    viewOneCard = true;
-    viewAFewCards = viewAllCards = false;
-  })
-  document.querySelector("#link_u").addEventListener("click", () => {
-    findACountry("United States")
-    viewOneCard = true;
-    viewAFewCards = viewAllCards = false;
-  })
-  document.querySelector("#link_s").addEventListener("click", () => {
-    findACountry("Switzerland")
-    viewOneCard = true;
-    viewAFewCards = viewAllCards = false;
-  })
-  document.querySelector("#link_c").addEventListener("click", () => {
-    findACountry("Canada")
-    viewOneCard = true;
-    viewAFewCards = viewAllCards = false;
-  })
-  document.querySelector("#link_b").addEventListener("click", () => {
-    findACountry("Brazil")
-    viewOneCard = true;
-    viewAFewCards = viewAllCards = false;
-  })
-
-}
-
-const findACountry = (_name) => {
-  document.querySelector("#id_main").innerHTML = ``
-  for (let i = 0; i < arrCountreis.length; i++) {
-    if (arrCountreis[i].name === _name) {
-      arrCountreis[i].render()
-    }
-  }
-}
-
-const putACard = () => {
-
-  if (viewAFewCards) {
-    for (let i = 0; i < arrCountreis.length; i++) {
-      if (arrCountreis[i].name === "Israel" ||
-        arrCountreis[i].name === "United States" ||
-        arrCountreis[i].name === "Switzerland" ||
-        arrCountreis[i].name === "Brazil" ||
-        arrCountreis[i].name === "Canada"
-      ) {
-        countreisToShow.push(arrCountreis[i])
-      }
-    }
-  }
-  else if (viewAllCards) {
-    arrCountreis.forEach(element => countreisToShow.push(element))
-  }
-
-  renderCard(countreisToShow)
-  countreisToShow = []
-}
-
-const renderCard = (_listOfCountreis) => {
-  _listOfCountreis.forEach(element => element.render())
-}
-
-
-
-
-
-
-
 
 init()

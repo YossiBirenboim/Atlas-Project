@@ -104,7 +104,7 @@ header {
 #id_main{
     display: flex;
     flex-wrap: wrap ;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-style: italic;
     font-size: larger;
     font-weight: bold;
