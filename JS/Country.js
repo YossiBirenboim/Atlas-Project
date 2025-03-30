@@ -31,7 +31,7 @@ export default class Country {
                 </div>
                 <div><img src  = "${this.flag}"</div>
                 <div class = "iframeClass"><iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-            src="https://maps.google.com/maps?q=${this.lat},${this.lon}&hl=es&z=5&amp;output=embed">
+            src="https://maps.google.com/maps?q=${this.lat},${this.lon}&hl=es&z=1&amp;output=embed">
             </iframe></div>
             </div>
             `;
@@ -41,10 +41,10 @@ export default class Country {
     let myDiv = document.createElement("div")
     myDiv.className = "div_b"
     document.querySelector("#id_main").append(myDiv)
-    myDiv.innerHTML = `<div class="card cardClass" style="width: 25rem;">
+    myDiv.innerHTML = `<div class="card cardClass" style="width: 25rem ;">
     <div class="card-body" href = "../info.html">
     <img src="${this.flag}" class="card-img-top" alt="${this.name}">
-    <p class="card-text">name: ${this.name}.</p> 
+    <p class="card-text">name: ${this.name}</p> 
     </div>
     </div>`
     myDiv.addEventListener("click", () => {
@@ -66,12 +66,11 @@ export default class Country {
   }
   showTheLanguages() {
     let listOfL = []
-    if (this.neighbors === undefined) {
-      listOfL.push(`none`)
+    if (this.languages === undefined) {
       return listOfL
     }
-    for (let key in this.neighbors) {
-      listOfL.push(this.neighbors[key])
+    for (let key in this.languages) {
+      listOfL.push(this.languages[key])
     }
     return listOfL;
   }
