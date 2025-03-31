@@ -108,10 +108,10 @@ export const selectManager = () => {
 }
 
 const countryOriginByFirstLetters = (_firstOfTheName) => {
+  let cardAppeared = false;
   for (let i = 0; i < _firstOfTheName.length; i++) {
     if (_firstOfTheName[i] < `A` || _firstOfTheName[i] > `z`){
       alert("Invalid typing ! \n Please write in English")
-      return;
     }
   }
     
@@ -127,7 +127,7 @@ const countryOriginByFirstLetters = (_firstOfTheName) => {
   for (let i = 0; i < arrCountreis.length; i++) {
     tempStr = arrCountreis[i].name.toLowerCase()
     if (tempStr.startsWith(_firstOfTheName)) {
-      arrCountreis[i].render()
+      arrCountreis[i].render()   
     }
   }
 }
