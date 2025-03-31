@@ -31,6 +31,10 @@ header {
     margin: auto;
 }
 
+.nav-links li{
+    cursor: pointer;
+}
+
  
 .logo {
     font-size: 24px;
@@ -182,6 +186,7 @@ header {
                 background-color 0.5s ease-in-out;
     border-radius: 15px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .card-body:hover {
