@@ -108,18 +108,25 @@ export const selectManager = () => {
 }
 
 const countryOriginByFirstLetters = (_firstOfTheName) => {
+  for (let i = 0; i < _firstOfTheName.length; i++) {
+    if (_firstOfTheName[i] < `A` || _firstOfTheName[i] > `z`){
+      alert("Invalid typing ! \n Please write in English")
+      return;
+    }
+  }
+    
   _firstOfTheName = _firstOfTheName.toLowerCase()
   let tempStr;
   for (let i = 0; i < arrOfNames.length; i++) {
     tempStr = arrOfNames[i].toLowerCase()
-    if (tempStr.startsWith(_firstOfTheName)){
+    if (tempStr.startsWith(_firstOfTheName)) {
       document.querySelector("#id_main").innerHTML = ``
       break;
     }
   }
   for (let i = 0; i < arrCountreis.length; i++) {
     tempStr = arrCountreis[i].name.toLowerCase()
-    if ( tempStr.startsWith(_firstOfTheName)) {
+    if (tempStr.startsWith(_firstOfTheName)) {
       arrCountreis[i].render()
     }
   }

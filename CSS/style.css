@@ -39,14 +39,13 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    transition: 2000ms;
+    transition: all;
 }
 .logo :hover{
     border-top:2px solid #fff;
      border-bottom: 2px solid #fff;
 }
 
- 
 .nav-links {
     list-style: none;
     display: flex;

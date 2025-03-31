@@ -1,7 +1,6 @@
 import Country from "./Country.js";
 import {putACard} from "./function.js"
 import { logoLisiner } from "./function.js";
-// import { findACountry } from "./function.js";
 import { linksListener } from "./function.js";
 import { formListiner } from "./function.js";
 import { selectManager } from "./function.js";
