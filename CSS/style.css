@@ -29,16 +29,21 @@ header {
     color: white;
     max-width: 1200px;
     margin: auto;
+     
 }
+ 
 
-.nav-links li{
-    cursor: pointer;
-}
+ 
 
  
 .logo {
     font-size: 24px;
     font-weight: bold;
+    transition: 2000ms;
+}
+.logo :hover{
+    border-top:2px solid #fff;
+     border-bottom: 2px solid #fff;
 }
 
  
@@ -47,11 +52,19 @@ header {
     display: flex;
     padding: 0;
     margin: 0;
+    
 }
 
 .nav-links li {
     margin: 0 15px;
+    cursor: pointer;
+    transition: all;
 }
+.nav-links li :hover{
+     border-top:2px solid #fff;
+     border-bottom: 2px solid #fff;
+}
+ 
 
 .nav-links a {
     text-decoration: none;
