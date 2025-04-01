@@ -1,16 +1,30 @@
+// import Country from "./Country.js";
+// import {putACard} from "./function.js"
+// import { logoLisiner } from "./function.js";
+// import { linksListener } from "./function.js";
+// import { formListiner } from "./function.js";
+// import { selectManager } from "./function.js";
+
+
+// import {arrCountreis} from "./function.js"
+// import {arrOfNames} from "./function.js"
+// import {countreisToShow} from "./function.js"
+// import {viewOneCard} from "./function.js"
+// import {viewAFewCards} from "./function.js"
+
+
 import Country from "./Country.js";
-import {putACard} from "./function.js"
-import { logoLisiner } from "./function.js";
-import { linksListener } from "./function.js";
-import { formListiner } from "./function.js";
-import { selectManager } from "./function.js";
+import { 
+  putACard, 
+  logoLisiner, 
+  linksListener, 
+  formListiner, 
+  selectManager, 
+  arrCountreis, 
+  arrOfNames, 
+  viewOneCard, 
+} from "./function.js";
 
-
-import {arrCountreis} from "./function.js"
-import {arrOfNames} from "./function.js"
-import {countreisToShow} from "./function.js"
-import {viewOneCard} from "./function.js"
-import {viewAFewCards} from "./function.js"
  
 
 
